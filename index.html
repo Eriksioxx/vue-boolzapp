@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boolzap - Homepage</title>
+
+    <!-- Link FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Link Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans:wght@500&family=Oswald&display=swap"
+        rel="stylesheet">
+
+    <!-- Link Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+    <!-- Link foglio CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Collegamento con VueJs-->
+    <div id="app">
+
+        <div class="background">
+
+            <!-- Top background con sfondo verde -->
+            <div class="top_background"></div>
+
+            <!-- Container principale -->
+            <div class="container">
+
+                <!-- | Container SX con anteprima chat | -->
+                <div class="left_container">
+
+                    <!-- Header con icone e profilo -->
+                    <section class="header">
+                        <div class="user_box">
+                            <img :src="'img/'+ personalId.avatar" :alt="personalId.name">
+                            <p> {{personalId.name}} </p>
+                        </div>
+                        <div class="user_icons">
+                            <i class="fas fa-circle-notch"></i>
+                            <i class="fas fa-comment-alt"></i>
+                            <i class="fas fa-ellipsis-v"></i>
+                        </div>
+                    </section>
+
+                    <!-- Header alert message -->
+                    <section class="alert_mex">
+                        <div class="alert_bell">
+                            <i class="fas fa-bell-slash"></i>
+                        </div>
+                        <div class="alert_text">
+                            <p>Receive notifications of new messages</p>
+                            <a href="#">Activate desktop notifications</a>
+                        </div>
+                    </section>
+
+                    <!-- Ricerca utenti messaggi -->
+                    <section class="search_container">
+                        <div class="search_bar">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Search or start a new chat">
+                        </div>
+                    </section>
+
+                    <!-- Chat utenti -->
+                    <section class="chat_users">
+
+                        <div @click="selectContact(index)" v-for="(element, index) in contacts" class="user_box">
+                            <div class="img_user">
+                                <img :src="'img/' + element.avatar" :alt="element.name">
+                            </div>
+                            <div class="txt_user">
+                                <div class="username">
+                                    <div class="name"> {{ element.name}} </div>
+                                    <div class="time">
+                                        {{element.messages[element.messages.length-1].date}}
+                                    </div>
+                                </div>
+                                <div class="chat_preview">
+                                    {{ element.messages[element.messages.length-1].message }}
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Container DX -->
+                <div v-if="(indexCounter < 0)" class="start_container">
+                    <img src="img/schermata_iniziale.png" alt="Schermata Iniziale">
+                    <h2>Keep your phone connected</h2>
+                    <p>WhatsApp connects to your phone to synchronise messages. To reduce data usage
+                        data usage, connect your phone to Wi-Fi.</p>
+                    <div class="divider"></div>
+                    <p><i class="fas fa-laptop"></i>
+                        WhatsApp is available for Windows.
+                        <a href="#">Download it here.</a>
+                    </p>
+                </div>
+                <div v-else class="right_container">
+
+                    <!-- Header icona e immagine profilo -->
+                    <section class="header">
+                        <div class="user_box">
+                            <img :src="'img/'+ contacts[indexCounter].avatar" :alt="contacts[indexCounter].name">
+                        </div>
+                        <div class="user_text">
+                            <p>{{contacts[indexCounter].name}}</p>
+                            <p>{{contacts[indexCounter].access}}</p>
+                        </div>
+                        <div class="user_icons">
+                            <i class="fas fa-search"></i>
+                            <i class="fas fa-ellipsis-v"></i>
+                        </div>
+                    </section>
+
+                    <!-- MAIN DELLA CHAT -->
+                    <section class="chat_main">
+
+                        <!-- Indicatore data della serie di messaggi -->
+                        <div class="day_main">
+                            <div class="day center">
+                                <p>oggi</p>
+                            </div>
+                        </div>
+
+                        <!-- Caselle messaggi per ogni chat -->
+                        <div class="box">
+                            <div v-for="(key,index) in contacts[indexCounter].messages" v-bind:class="key.status"
+                                class="message">
+
+                            </div>
+
+
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Link Script Javascript -->
+    <script src="script.js" charset="utf-8"></script>
+
+</body>
+
+</html>
