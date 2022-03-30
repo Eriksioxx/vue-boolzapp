@@ -1,0 +1,281 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+/* *****MAIN***** */
+.background {
+    height: 100vh;
+    background-color: #dadbd3;
+}
+
+.top_background {
+    height: 130px;
+    background-color: #009788;
+}
+
+.container {
+    width: 80%;
+    height: 90%;
+    margin: -80px auto 0;
+    background-color: #fff;
+    box-shadow: 0 2px 3px rgba(75, 75, 75, 0.8);
+    display: flex;
+    justify-content: center;
+}
+
+/**** Sezione laterale SX ****/
+.left_container {
+    width: 30%;
+    height: 100%;
+}
+.left_container .header {
+    width: 100%;
+    height: 60px;
+    background-color: #ededed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.left_container .header .user_box {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 7px 15px;
+}
+.left_container .header .user_box img {
+    height: 100%;
+    border-radius: 50%;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.left_container .header .user_box p {
+    font-weight: bolder;
+    cursor: pointer;
+}
+.left_container .header .user_icons {
+    display: flex;
+}
+.left_container .header .user_icons i {
+    margin-right: 15px;
+    font-size: 15px;
+    color: #919191;
+    cursor: pointer;
+}
+
+/**** Sezione notifiche alert ****/
+.left_container .alert_mex {
+height: 80px;
+padding: 0 10px;
+background-color: #9ee1fe;
+display: flex;
+justify-content: flex-start;
+align-items: center;
+}
+.alert_mex .alert_bell {
+    margin-right: 10px;
+}
+.alert_mex .alert_bell i {
+    color: #9ee1fe;
+    font-size: 15px;
+    background-color: #fff;
+    padding: 7px 5px;
+    border-radius: 50%;
+}
+.alert_mex .alert_text {
+    color: #184354;
+    font-weight: lighter;
+    font-size: 13px;
+}
+.alert_mex .alert_text a::after {
+    content: "\f105";
+    font-family: 'FontAwesome';
+    font-size: 15px;
+    margin-left: 5px;
+}
+
+/**** Ricerca utenti****/
+.left_container .search_container {
+    width: 100%;
+    height: 50px;
+    background-color: #f6f6f6;
+    padding: 10px 5px;
+}
+.left_container .search_bar {
+    width: 90%;
+    background-color: white;
+    border-radius: 30px;
+    margin: 0 auto;
+    padding: 5px 10px;
+
+}
+.left_container .search_bar i {
+    color: #919191;
+    margin-right: 20px;
+    cursor: pointer;
+}
+.left_container .search_bar input {
+    width: 80%;
+    color: #919191;
+    border: none;
+    outline: 0;
+
+    font-size: 13px;
+}
+
+/**** Chat utenti****/
+.left_container .chat_users {
+    height: calc(100% - 200px);
+    overflow-y: auto;
+    cursor: pointer;
+}
+.chat_users .user_box {
+    height: 80px;
+    padding: 10px 15px 0;
+    display: flex;
+    transition: all 0.1s linear;
+}
+.chat_users .user_box:hover {
+    background-color: #edededde;
+}
+.chat_users .img_user {
+    height: 100%;
+}
+.chat_users .img_user img {
+    height: 85%;
+    border-radius: 50%;
+}
+.chat_users .txt_user {
+    width: 100%;
+    padding: 5px 10px 10px;
+    border-bottom: 2px solid rgba(128, 128, 128, 0.1);
+}
+.chat_users .txt_user .username {
+    display: flex;
+    justify-content: space-between;
+}
+.chat_users .txt_user .username .name {
+    font-size: 12px;
+    font-weight: lighter;
+}
+.chat_users .txt_user .username .time {
+    font-size: 13px;
+    font-weight: lighter;
+    color: #b1b1b1;
+}
+.chat_users .txt_user .chat_preview {
+    color: grey;
+    font-size: 13px;
+    margin-top: 3px;
+    white-space: normal;
+    overflow: hidden;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+
+/****** SEZIONE DX *****/
+
+/**Schermata iniziale**/
+.start_container {
+    width: 70%;
+    height: 100%;
+    background-color: #f8f9fb;
+    color: #747474;
+    text-align: center;
+    padding: 120px 20% 10%;
+    border-bottom: 5px solid #5fd38c;
+}
+.start_container img {
+    height: 45%;
+    margin-bottom: 30px;
+}
+.start_container h2 {
+    font-weight: lighter;
+    font-size: 30px;
+    color: #27391f;
+}
+.start_container p {
+    margin: 20px 0;
+    font-size: 13px;
+}
+.start_container .divider {
+background-color: #b1b1b1a2;
+width: 100%;
+height: 1px;
+}
+.start_container i {
+    margin-right: 5px;
+}
+.start_container a {
+    color: #5fd38c;
+    font-weight: bold;
+}
+
+.right_container {
+    width: 70%;
+    height: 100%;
+}
+/**** Header DX ****/
+
+.right_container .header {
+    background-color: #ededed;
+    height: 60px;
+    border: 0.5px solid rgba(128, 128, 128, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.right_container .header .user_box {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+}
+.right_container .header .user_box img {
+    height: 110%;
+    border-radius: 50%;
+    margin-right: 15px;
+    cursor: pointer;
+}
+.right_container .header .user_box p {
+    font-weight: bold;
+    cursor: pointer;
+}
+.right_container .user_text p:last-child {
+    font-size: 10px;
+    font-weight: lighter;
+    color: #919191;
+}
+.right_container .user_icons {
+    display: flex;
+}
+.right_container .user_icons i {
+    margin-right: 40px;
+    font-size: 18px;
+    color: #919191;
+    cursor: pointer;
+}
+
+/*****Main della chat*****/
+
+.right_container .chat_main{
+    height: calc(100% - 100px);
+    background-image: url(img/mine.jpg);
+    padding: 20px 60px;
+    color: #27391f;
+    overflow-y: auto;
+}
+.chat_main .box,
+.chat_main .day_main {
+    display: flex;
+    flex-direction: column;
+}
