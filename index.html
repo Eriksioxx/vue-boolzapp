@@ -112,10 +112,11 @@
                     <section class="header">
                         <div class="user_box">
                             <img :src="'img/'+ contacts[indexCounter].avatar" :alt="contacts[indexCounter].name">
-                        </div>
-                        <div class="user_text">
-                            <p>{{contacts[indexCounter].name}}</p>
-                            <p>{{contacts[indexCounter].access}}</p>
+
+                            <div class="user_text">
+                                <p>{{contacts[indexCounter].name}}</p>
+                                <p>{{contacts[indexCounter].access}}</p>
+                            </div>
                         </div>
                         <div class="user_icons">
                             <i class="fas fa-search"></i>
@@ -160,8 +161,8 @@
                     <section class="footer_main">
                         <i class="far fa-grin-wink"></i>
                         <i class="fas fa-paperclip"></i>
-                        <input placeholder="Write a message">
-                        <i class="fas fa-paper-plane"></i>
+                        <input @keyup.enter="addMessage" type="text" v-model="userText" placeholder="Write a message">
+                        <i @click="addMessage" :class="(userText == 0)?'fas fa-microphone':'fas fa-paper-plane'"></i>
                     </section>
                 </div>
             </div>

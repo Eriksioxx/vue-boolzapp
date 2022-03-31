@@ -7,6 +7,7 @@ const app = new Vue({
         indexCounter: -1,
         timeClicked: 0,
         counterMessage: null,
+        userText: '',
         personalId: {
             name: 'Erik S.',
             avatar: 'Erik.jpg'
@@ -182,7 +183,8 @@ const app = new Vue({
                 ],
             }
         ],
-        infoMenu: ['Reply', 'Forward message', 'Important Message', 'Delete Message']
+        infoMenu: ['Reply', 'Forward message', 'Important Message', 'Delete Message'],
+        accessList: ['online', 'He is writing...', 'Last accessed recently', 'Last access']
     },
 
     methods: {
@@ -199,7 +201,47 @@ const app = new Vue({
                 this.timeClicked--;
             }
         },
+        addMessage() {
+            if (this.userText.length > 0) {
 
+                let time = this.generaRandom(3, 6) * 1000;
+                let date = new Date();
+
+                this.contacts[this.indexCounter].messages.push({
+                    date: date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds(),
+                    message: this.userText,
+                    status: 'sent'
+                });
+
+                setTimeout(() => {
+                    this.contacts[this.indexCounter].access = this.accessList[0];
+                }, time);
+
+                setTimeout(() => {
+                    this.contacts[this.indexCounter].access = this.accessList[1];
+                }, time + 1500);
+
+                setTimeout(() => {
+                    this.contacts[this.indexCounter].messages.push({
+                        date: date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds(),
+                        message: 'OK, BRO E DAJJEEE',
+                        status: 'receveid'
+                    });
+
+                    this.contacts[this.indexCounter].access = this.accessesList[0]
+
+                }, time + 2000);
+
+                setTimeout(() => {
+                    this.contacts[this.indexCounter].access = this.accessesList[2];
+                }, time + 4000);
+            }
+
+            this.userText = '';
+        },
+        generaRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        },
 
     }
 })
