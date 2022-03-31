@@ -204,11 +204,11 @@ const app = new Vue({
         addMessage() {
             if (this.userText.length > 0) {
 
-                let time = this.generaRandom(3, 6) * 1000;
+                let time = this.generaRandom(2, 6) * 1000;
                 let date = new Date();
 
                 this.contacts[this.indexCounter].messages.push({
-                    date: date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds(),
+                    date: date.getHours() + ':' + date.getMinutes(),
                     message: this.userText,
                     status: 'sent'
                 });
@@ -223,9 +223,9 @@ const app = new Vue({
 
                 setTimeout(() => {
                     this.contacts[this.indexCounter].messages.push({
-                        date: date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds(),
-                        message: 'OK, BRO E DAJJEEE',
-                        status: 'receveid'
+                        date: date.getHours() + ':' + date.getMinutes(),
+                        message: 'OK, BRO E DAJJEEE!!!',
+                        status: 'received'
                     });
 
                     this.contacts[this.indexCounter].access = this.accessList[0]
@@ -234,7 +234,7 @@ const app = new Vue({
 
                 setTimeout(() => {
                     this.contacts[this.indexCounter].access = this.accessList[2];
-                }, time + 4000);
+                }, time + 5000);
             }
 
             this.userText = '';
