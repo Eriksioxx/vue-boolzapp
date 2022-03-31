@@ -219,7 +219,7 @@ const app = new Vue({
 
                 setTimeout(() => {
                     this.contacts[this.indexCounter].access = this.accessList[1];
-                }, time + 1500);
+                }, time + 1000);
 
                 setTimeout(() => {
                     this.contacts[this.indexCounter].messages.push({
@@ -228,12 +228,12 @@ const app = new Vue({
                         status: 'receveid'
                     });
 
-                    this.contacts[this.indexCounter].access = this.accessesList[0]
+                    this.contacts[this.indexCounter].access = this.accessList[0]
 
-                }, time + 2000);
+                }, time + 3000);
 
                 setTimeout(() => {
-                    this.contacts[this.indexCounter].access = this.accessesList[2];
+                    this.contacts[this.indexCounter].access = this.accessList[2];
                 }, time + 4000);
             }
 
