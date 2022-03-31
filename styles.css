@@ -8,6 +8,14 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: #0e191f;
+}
 
 /* *****MAIN***** */
 .background {
@@ -161,7 +169,7 @@ align-items: center;
     justify-content: space-between;
 }
 .chat_users .txt_user .username .name {
-    font-size: 12px;
+    font-size: 14px;
     font-weight: lighter;
 }
 .chat_users .txt_user .username .time {
@@ -268,7 +276,7 @@ height: 1px;
 /*****Main della chat*****/
 
 .right_container .chat_main{
-    height: calc(100% - 100px);
+    height: calc(100% - 130px);
     background-image: url(img/mine.jpg);
     padding: 20px 60px;
     color: #27391f;
@@ -278,4 +286,166 @@ height: 1px;
 .chat_main .day_main {
     display: flex;
     flex-direction: column;
+}
+.chat_main .day_main {
+    margin-bottom: 20px;
+}
+.chat_main .message {
+    max-width: 500px;
+    margin-bottom: 20px;
+    display: flex;
+}
+.chat_main .day.center {
+align-self: center;
+}
+.chat_main .day.center p {
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #0e191f;
+    background-color: #e1f4fb;
+    border-radius: 5px;
+    padding: 6px 8px;
+    box-shadow: 0 1px 1px rgba(128, 128, 128, 0.5);
+}
+.chat_main .box .message {
+    min-width: 80px;
+    max-width: 500px;
+    padding: 10px 30px 25px 10px;
+    box-shadow: 0 0.5px 1px rgba(128, 128, 128, 0.5);
+    word-break: break-all;
+
+    position: relative;
+}
+.chat_main .box .message > p {
+    font-size: 14px;
+}
+.message.sent {
+    align-self: flex-end;
+    background-color: #dcf8c7;
+    border-radius: 10px 0 10px 10px;
+}
+.message.sent::after {
+    content: "\f0d8";
+    color: #dcf8c7;
+    font-size: 30px;
+    font-family: 'FontAwesome';
+    font-weight: bolder;
+    position: absolute;
+    top: -9.5px;
+    right: -9px;
+    transform: rotate(-45deg);
+}
+.message.received {
+    align-self: flex-start;
+    background-color: #fff;
+    border-radius: 0 10px 10px 10px;
+}
+.message.received::before {
+    content: "\f0d8";
+    color: #fff;
+    font-size: 30px;
+    font-family: 'FontAwesome';
+    font-weight: bolder;
+    position: absolute;
+    top: -9.5px;
+    left: -9px;
+    transform: rotate(45deg);
+}
+.chat_main .box .message .info_box {
+    position: absolute;
+    top: 0;
+    right: 2px;
+    padding: 4px 8px;
+    border-radius: 50%;
+    color: #919191;
+}
+.chat_main .box .message .info_box i {
+    font-size: 12px;
+    display: none;
+}
+
+.chat_main .box .message:hover > .info_box i {
+    display: block;
+    cursor: pointer;
+    animation: display 0.2s linear;
+}
+
+@keyframes display {
+    0% {
+    opacity: 0;
+    font-size: 0.1px;
+    }
+    100% {
+    opacity: 1;
+    font-size: 14px;
+    }
+}
+
+/*Menu messaggi in chat*/
+.chat_main  .message .info_menu {
+    width: 200px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(128, 128, 128, 0.5);
+    position: absolute;
+    top: 30px;
+    right: 0;
+    z-index: 1;
+}
+.chat_main .message .info_menu.right {
+    right: -180px;
+}
+.chat_main .info_menu li {
+    font-size: 14px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.1s linear;
+}
+.chat_main .info_menu li:hover {
+    background-color: #ededed;
+}
+.chat_main .message .time_box {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    bottom: 5px;
+    right: 10px;
+
+    font-size: 0.7em;
+    color: #919191;
+}
+.chat_main .message .time_box p {
+    margin-right: 5px;
+}
+
+/*****Footer*****/
+.right_container .footer_main {
+    height: 70px;
+    background-color: #ededed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+.right_container .footer_main i {
+    font-size: 16px;
+    color: #919191;
+    cursor: pointer;
+}
+.right_container .footer_main i:not(:last-child) {
+    margin-right: 20px;
+}
+.right_container .footer_main i:last-child {
+    width: 25px;
+    text-align: center;
+}
+.right_container .footer_main input {
+    flex-grow: 1;
+    font-size: 15px;
+    color: #919191;
+    margin-right: 20px;
+    padding: 8px;
+    border: none;
+    outline: 0;
+    border-radius: 30px;
 }
