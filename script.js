@@ -8,6 +8,7 @@ const app = new Vue({
         timeClicked: 0,
         counterMessage: null,
         userText: '',
+        searchText: '',
         personalId: {
             name: 'Erik S.',
             avatar: 'Erik.jpg'
@@ -190,7 +191,6 @@ const app = new Vue({
     methods: {
         selectContact(index) {
             this.indexCounter = index;
-            this.counterMessage = null;
         },
         selectMessage(index) {
             if (this.timeClicked == 0) {
@@ -241,6 +241,23 @@ const app = new Vue({
         },
         generaRandom(min, max) {
             return Math.floor(Math.random() * (max - min + 1)) + min;
+        },
+        filterChat() {
+            // console.log(this.searchText);
+
+            if (this.searchText.length > 0) {
+                this.contacts.forEach(element => {
+                    if (element.name.toLowerCase().includes(this.searchText.toLowerCase())) {
+                        element.visible = true;
+                    } else {
+                        element.visible = false;
+                    }
+                });
+            } else {
+                this.contacts.forEach(element => {
+                    element.visible = true;
+                });
+            }
         },
 
     }

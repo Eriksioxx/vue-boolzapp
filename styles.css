@@ -428,7 +428,7 @@ align-self: center;
     padding: 10px 20px;
 }
 .right_container .footer_main i {
-    font-size: 16px;
+    font-size: 19px;
     color: #919191;
     cursor: pointer;
 }
@@ -441,8 +441,8 @@ align-self: center;
 }
 .right_container .footer_main input {
     flex-grow: 1;
-    font-size: 15px;
-    color: #919191;
+    font-size: 16px;
+    color: #0a0a0a;
     margin-right: 20px;
     padding: 8px;
     border: none;

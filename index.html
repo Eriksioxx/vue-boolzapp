@@ -68,7 +68,8 @@
                     <section class="search_container">
                         <div class="search_bar">
                             <i class="fas fa-search"></i>
-                            <input type="text" placeholder="Search or start a new chat">
+                            <input type="text" v-model="searchText" @keyup="filterChat"
+                                placeholder="Search or start a new chat">
                         </div>
                     </section>
 
