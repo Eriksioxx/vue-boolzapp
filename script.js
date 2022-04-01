@@ -265,10 +265,12 @@ const app = new Vue({
             if (date !== undefined) {
                 console.log(date);
             } else {
-                date = undefined;
+                this.counterMessage = null;
+
+                return;
             }
 
-            this.counterMessage = null;
+
 
         }
     }
