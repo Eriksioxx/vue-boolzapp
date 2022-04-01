@@ -161,7 +161,7 @@ const app = new Vue({
                 ],
             },
             {
-                name: 'Davide',
+                name: 'Gian',
                 access: '',
                 avatar: 'avatar_8.jpg',
                 visible: true,
@@ -184,7 +184,7 @@ const app = new Vue({
                 ],
             }
         ],
-        infoMenu: ['Reply', 'Forward message', 'Important Message', 'Delete Message'],
+        infoMenu: ['Reply', 'Delete Message'],
         accessList: ['online', 'He is writing...', 'Last accessed recently', 'Last access']
     },
 
@@ -243,19 +243,18 @@ const app = new Vue({
             return Math.floor(Math.random() * (max - min + 1)) + min;
         },
         filterChat() {
-            // console.log(this.searchText);
 
             if (this.searchText.length > 0) {
-                this.contacts.forEach(element => {
-                    if (element.name.toLowerCase().includes(this.searchText.toLowerCase())) {
-                        element.visible = true;
+                this.contacts.forEach(contact => {
+                    if (contact.name.toLowerCase().includes(this.searchText.toLowerCase())) {
+                        contact.visible = true;
                     } else {
-                        element.visible = false;
+                        contact.visible = false;
                     }
                 });
             } else {
-                this.contacts.forEach(element => {
-                    element.visible = true;
+                this.contacts.forEach(contact => {
+                    contact.visible = true;
                 });
             }
         },

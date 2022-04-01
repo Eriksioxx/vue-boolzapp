@@ -76,19 +76,20 @@
                     <!-- Chat utenti -->
                     <section class="chat_users">
 
-                        <div @click="selectContact(index)" v-for="(element, index) in contacts" class="user_box">
+                        <div @click="selectContact(index)" v-for="(contact, index) in contacts"
+                            v-if="contact.visible !== false" class="user_box">
                             <div class="img_user">
-                                <img :src="'img/' + element.avatar" :alt="element.name">
+                                <img :src="'img/' + contact.avatar" :alt="contact.name">
                             </div>
                             <div class="txt_user">
                                 <div class="username">
-                                    <div class="name"> {{ element.name}} </div>
+                                    <div class="name"> {{ contact.name }} {{contact.visible}}</div>
                                     <div class="time">
-                                        {{element.messages[element.messages.length-1].date}}
+                                        {{ contact.messages[contact.messages.length-1].date }}
                                     </div>
                                 </div>
                                 <div class="chat_preview">
-                                    {{ element.messages[element.messages.length-1].message }}
+                                    {{ contact.messages[contact.messages.length-1].message }}
                                 </div>
                             </div>
                         </div>
