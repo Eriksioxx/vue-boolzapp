@@ -258,6 +258,16 @@ const app = new Vue({
                 });
             }
         },
+        deleteMessage(index) {
+            this.contacts[this.indexCounter].messages.splice(this.counterMessage, 1);
 
+            let date = new Date();
+            if (date !== undefined) {
+                console.log(date);
+            } else {
+            }
+
+            this.counterMessage = null;
+        }
     }
 })

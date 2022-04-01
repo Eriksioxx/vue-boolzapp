@@ -82,7 +82,7 @@
                                 <img :src="'img/' + contact.avatar" :alt="contact.name">
                             </div>
                             <div class="txt_user">
-                                <div class="username">
+                                <div v-if="contact.name.length > 0" class="username">
                                     <div class="name"> {{ contact.name }} {{contact.visible}}</div>
                                     <div class="time">
                                         {{ contact.messages[contact.messages.length-1].date }}
@@ -146,7 +146,7 @@
                                     <div class="info_menu" v-if="index == counterMessage"
                                         :class="(contacts[indexCounter].messages[counterMessage].status === 'received')?'right':''">
                                         <ul>
-                                            <li v-for="(element, index) in infoMenu">
+                                            <li @click="deleteMessage(index)" v-for="(element, index) in infoMenu">
                                                 <a href="#">{{element}}</a>
                                             </li>
                                         </ul>
